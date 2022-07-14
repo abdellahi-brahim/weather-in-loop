@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.weatherinloop.frontend.Model.Weather;
@@ -28,5 +30,13 @@ public class HomeController {
 
         model.addAttribute("cities", cities);
         return "home.html";
+    }
+
+    @GetMapping(value = {"/forecast/{cityName}"})
+    public String displayForecast(@PathVariable(value = "cityName") String cityName, Model model) {
+
+        Weather forecast = homeService.getWeather(cityName);
+        model.addAttribute("forecast", forecast);
+        return "forecast.html";
     }
 }
