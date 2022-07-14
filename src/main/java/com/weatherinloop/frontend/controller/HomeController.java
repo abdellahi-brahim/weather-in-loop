@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.weatherinloop.frontend.Model.Weather;
 import com.weatherinloop.frontend.Service.HomeService;
@@ -32,11 +34,15 @@ public class HomeController {
         return "home.html";
     }
 
-    @GetMapping(value = {"/forecast/{cityName}"})
+    @GetMapping(value = { "/forecast/{cityName}" })
     public String displayForecast(@PathVariable(value = "cityName") String cityName, Model model) {
-
-        Weather forecast = homeService.getWeather(cityName);
-        model.addAttribute("forecast", forecast);
+        Weather city = homeService.getWeather(cityName);
+        model.addAttribute("city", city);
         return "forecast.html";
+    }
+
+    @PostMapping(value = { "/search" })
+    public String searchForecast(@RequestParam(name = "cityName") String cityName) {
+        return "redirect:/forecast/" + cityName;
     }
 }

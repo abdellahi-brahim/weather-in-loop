@@ -31,7 +31,7 @@ public class HomeService {
         JsonNode days = weatherJSON.get("forecast").get("forecastday");
         for (JsonNode day : days) {
             Forecast newForecast = new Forecast();
-            newForecast.setDate(day.get("day").toString().replaceAll("\"", ""));
+            newForecast.setDate(day.get("date").toString().replaceAll("\"", ""));
             newForecast.setMaxtemp_c(day.get("day").get("maxtemp_c").toString().replaceAll("\"", ""));
             newForecast.setMintemp_c(day.get("day").get("mintemp_c").toString().replaceAll("\"", ""));
             newForecast.setIcon(

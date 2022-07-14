@@ -9,15 +9,14 @@ services:
     environment:
       MYSQL_USER: admin # The MySQL user (useful to connect to the database)
       MYSQL_PASSWORD: admin
-      MYSQL_ROOT_PASSWORD: admin  # The MySQL password (useful to connect to the database)
+      MYSQL_ROOT_PASSWORD: admin # The MySQL password (useful to connect to the database)
       MYSQL_DATABASE: WeatherInLoop # The MySQL default database (automatically created at first launch)
   command-line:
     build:
-     context: .
-     dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile
     command: tail -f /dev/null
-    links: 
+    links:
       - database
     volumes:
       - ..:/workspace
-    
