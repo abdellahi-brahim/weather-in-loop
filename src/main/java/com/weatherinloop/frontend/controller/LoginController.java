@@ -1,6 +1,9 @@
 package com.weatherinloop.frontend.controller;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class LoginController {
 
+    
     @RequestMapping(value ="/login",method = { RequestMethod.GET, RequestMethod.POST })
     public String displayLoginPage(@RequestParam(value = "error", required = false) String error,
                                    @RequestParam(value = "logout", required = false) String logout,
