@@ -1,4 +1,4 @@
-package com.weatherinloop.frontend.Repositories;
+package com.weatherinloop.frontend.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

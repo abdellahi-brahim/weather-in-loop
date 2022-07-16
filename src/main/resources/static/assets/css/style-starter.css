@@ -1999,16 +1999,18 @@ progress {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
   --bs-table-striped-color: var(--heading-color);
-  --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.3);
   --bs-table-active-color: #212529;
-  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+  --bs-table-active-bg: rgba(242, 173, 52, 0.5);
   --bs-table-hover-color: #212529;
-  --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+  --bs-table-hover-bg: rgba(242, 173, 52, 0.5);
   width: 100%;
   margin-bottom: 1rem;
   color: var(--heading-color);
   vertical-align: top;
   border-color: #dee2e6;
+  text-align: center;
+  align-items: center;
 }
 
 .table> :not(caption)>*>* {
@@ -2053,6 +2055,10 @@ progress {
 .table-striped>tbody>tr:nth-of-type(odd) {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
   color: var(--bs-table-striped-color);
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+  color: #f2ad34;
 }
 
 .table-active {

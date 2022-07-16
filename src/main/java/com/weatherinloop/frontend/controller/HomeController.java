@@ -21,6 +21,11 @@ public class HomeController {
     @Autowired
     HomeService homeService;
 
+    @GetMapping("/error")
+    public String error(Model model) {
+        return "error.html";
+    }
+
     @RequestMapping(value = { "", "/", "/home" })
     public String displayHomePage(Model model) {
         String[] biggestCities = { "New York City", "London", "Hong Kong", "Paris", "Tokyo" };

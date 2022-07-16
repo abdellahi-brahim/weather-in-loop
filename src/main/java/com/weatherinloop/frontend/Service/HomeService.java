@@ -23,6 +23,7 @@ public class HomeService {
         // New weather object
         Weather newWeather = new Weather();
         newWeather.setName(weatherJSON.get("location").get("name").toString().replaceAll("\"", ""));
+        newWeather.setCountry(weatherJSON.get("location").get("country").toString().replaceAll("\"", ""));
         newWeather.setTemp_c(weatherJSON.get("current").get("temp_c").toString().replaceAll("\"", ""));
         newWeather.setIcon(weatherJSON.get("current").get("condition").get("icon").toString().replaceAll("\"", ""));
 
