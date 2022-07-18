@@ -31,7 +31,7 @@ public class RegisterController {
     }
 
     @RequestMapping(value ="/createUser",method = { RequestMethod.POST})
-    public String createUser(@Validated @ModelAttribute("person") User user, Errors errors) {
+    public String createUser(@Validated @ModelAttribute("user") User user, Errors errors) {
         if(errors.hasErrors()){
             return "register.html";
         }
