@@ -1,6 +1,7 @@
 package com.weatherinloop.frontend.controller;
 
 import com.weatherinloop.frontend.Model.User;
+import com.weatherinloop.frontend.Service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class RegisterController {
 
-    //@Autowired
-    //PersonService personService;
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value ="/register",method = { RequestMethod.GET})
     public String displayRegisterPage(Model model) {
@@ -28,17 +30,17 @@ public class RegisterController {
         return "register.html";
     }
 
-    /*@RequestMapping(value ="/createUser",method = { RequestMethod.POST})
-    public String createUser(@Valid @ModelAttribute("person") Person person, Errors errors) {
+    @RequestMapping(value ="/createUser",method = { RequestMethod.POST})
+    public String createUser(@Validated @ModelAttribute("person") User user, Errors errors) {
         if(errors.hasErrors()){
             return "register.html";
         }
-        boolean isSaved = personService.createNewPerson(person);
+        boolean isSaved = userService.createNewUser(user);
         if(isSaved){
             return "redirect:/login?register=true";
         }else {
             return "register.html";
         }
-    }*/
+    }
 
 }

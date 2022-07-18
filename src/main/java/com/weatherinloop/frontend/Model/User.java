@@ -29,3 +29,4 @@ public class User {
                                         @JoinColumn(name = "fav_id", referencedColumnName = "favID") })
         private Set<Favorites> favorites = new HashSet<>();
 }
+

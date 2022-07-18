@@ -14,14 +14,19 @@ import org.springframework.security.web.SecurityFilterChain;
 public class ProjectSecurityConfig {
 
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers("/**");
+    public InMemoryUserDetailsManager userDetailsService() {
+        UserDetails user = User
+            .withUsername("user")
+            .password("password")
+            .roles("USER")
+            .build();
+        return new InMemoryUserDetailsManager(user);
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf().ignoringAntMatchers("/register").and()
+            .csrf().ignoringAntMatchers("/login").and()
             .authorizeRequests()
             //.mvcMatchers("/dashboard").authenticated()
             .mvcMatchers("/login").permitAll()
@@ -33,15 +38,7 @@ public class ProjectSecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User
-            .withUsername("user")
-            .password("password")
-            .roles("USER")
-            .build();
-        return new InMemoryUserDetailsManager(user);
-    }
+
     
 /*     @Override
     protected void configure(HttpSecurity http) throws Exception {
