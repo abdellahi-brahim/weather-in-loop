@@ -1,4 +1,4 @@
-package com.weatherinloop.frontend.Controller;
+package com.weatherinloop.frontend.controller;
 
 import java.util.ArrayList;
 import java.util.List;
