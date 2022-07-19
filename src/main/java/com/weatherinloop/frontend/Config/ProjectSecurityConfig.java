@@ -3,15 +3,9 @@ package com.weatherinloop.frontend.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.mysql.cj.protocol.AuthenticationProvider;
 import com.weatherinloop.frontend.Security.UserAuthentication;
 
 @Configuration
@@ -29,8 +23,8 @@ public class ProjectSecurityConfig {
      * }
      */
 
-     @Autowired
-     UserAuthentication userAuthentication;
+    @Autowired
+    UserAuthentication userAuthentication;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -47,10 +41,13 @@ public class ProjectSecurityConfig {
         return http.build();
     }
 
-   /* @Bean
-    public AuthenticationManagerBuilder authenticateMethod(AuthenticationManagerBuilder auth) {
-        auth.authenticationProvider(userAuthentication);
-        return(auth);
-    }*/
+    /*
+     * @Bean
+     * public AuthenticationManagerBuilder
+     * authenticateMethod(AuthenticationManagerBuilder auth) {
+     * auth.authenticationProvider(userAuthentication);
+     * return(auth);
+     * }
+     */
 
 }

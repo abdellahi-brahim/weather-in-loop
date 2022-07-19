@@ -6,19 +6,13 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import com.weatherinloop.frontend.Model.User;
 import com.weatherinloop.frontend.Repository.UserRepository;
 
 @Component
-public class UserAuthentication implements AuthenticationProvider
-{
+public class UserAuthentication implements AuthenticationProvider {
     @Autowired
     private UserRepository userRepository;
 
@@ -29,9 +23,9 @@ public class UserAuthentication implements AuthenticationProvider
         User user = userRepository.findByName(name);
         System.out.println(user);
         System.out.println("hello '" + name + "' <- heres the name");
-        if(null != user && user.getUserID()>0 && pwd.equals(user.getPassword())){
+        if (null != user && user.getUserID() > 0 && pwd.equals(user.getPassword())) {
             return new UsernamePasswordAuthenticationToken(user.getName(), pwd);
-        }else{
+        } else {
             throw new BadCredentialsException("Invalid credentials!");
         }
     }

@@ -1,4 +1,4 @@
-package com.weatherinloop.frontend.controller;
+package com.weatherinloop.frontend.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.weatherinloop.frontend.Model.Weather;
 import com.weatherinloop.frontend.Service.HomeService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class HomeController {
 
