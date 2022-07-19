@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class Weather {
     private String name;
+    private String country;
     private String temp_c;
     private String icon;
     private List<Forecast> forecast;

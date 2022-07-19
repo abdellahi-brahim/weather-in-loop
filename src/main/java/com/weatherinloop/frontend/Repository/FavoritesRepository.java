@@ -9,4 +9,3 @@ import com.weatherinloop.frontend.Model.Favorites;
 public interface FavoritesRepository extends JpaRepository<Favorites, Integer> {
 
 }
-

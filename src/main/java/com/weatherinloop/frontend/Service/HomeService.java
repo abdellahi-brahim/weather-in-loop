@@ -23,6 +23,7 @@ public class HomeService {
         // New weather object
         Weather newWeather = new Weather();
         newWeather.setName(weatherJSON.get("location").get("name").toString().replaceAll("\"", ""));
+        newWeather.setCountry(weatherJSON.get("location").get("country").toString().replaceAll("\"", ""));
         newWeather.setTemp_c(weatherJSON.get("current").get("temp_c").toString().replaceAll("\"", ""));
         newWeather.setIcon(weatherJSON.get("current").get("condition").get("icon").toString().replaceAll("\"", ""));
 
@@ -31,7 +32,7 @@ public class HomeService {
         JsonNode days = weatherJSON.get("forecast").get("forecastday");
         for (JsonNode day : days) {
             Forecast newForecast = new Forecast();
-            newForecast.setDate(day.get("day").toString().replaceAll("\"", ""));
+            newForecast.setDate(day.get("date").toString().replaceAll("\"", ""));
             newForecast.setMaxtemp_c(day.get("day").get("maxtemp_c").toString().replaceAll("\"", ""));
             newForecast.setMintemp_c(day.get("day").get("mintemp_c").toString().replaceAll("\"", ""));
             newForecast.setIcon(
