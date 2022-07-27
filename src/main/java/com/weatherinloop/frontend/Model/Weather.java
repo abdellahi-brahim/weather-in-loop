@@ -11,5 +11,4 @@ public class Weather {
     private String temp_c;
     private String icon;
     private List<Forecast> forecast;
-
 }

@@ -13,7 +13,6 @@ import com.weatherinloop.frontend.Proxy.WeatherProxy;
 
 @Service
 public class HomeService {
-
     @Autowired
     WeatherProxy weatherProxy;
 

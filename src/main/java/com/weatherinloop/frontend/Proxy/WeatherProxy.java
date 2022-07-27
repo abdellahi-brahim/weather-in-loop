@@ -12,7 +12,6 @@ import com.weatherinloop.frontend.Config.FeignConfig;
 
 @FeignClient(name = "weather", url = "${api.baseUrl}", configuration = FeignConfig.class)
 public interface WeatherProxy {
-
     @RequestMapping(method = RequestMethod.GET, value = "/{name}")
     @Headers(value = "Content-Type: application/json")
     public JsonNode getWeather(@PathVariable("name") String name);

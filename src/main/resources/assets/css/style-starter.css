@@ -21092,4 +21092,9 @@ h4.inner-text-title {
   }
 }
 
+.heart {
+    font-size: 25px;
+    color:red;
+}
+
 /* //team block */
