@@ -38,8 +38,9 @@ Author URL: http://w3layouts.com
                         <h3 th:text="'Forecast for ' + ${city.name} + ', ' + ${city.country}" class="mb-lg-4 mb-3">
                             Forecast</h3>
 
-                        <form sec:authorize="isAuthenticated()" method="post" th:action="@{/favorite}">
-                            <button type="button">Add to Favorites</button>
+                        <form method="post" sec:authorize="isAuthenticated()" th:action="@{/favorite}">
+                            <input type="hidden" th:value="${city.name}" name="cityName"/>
+                            <button type="submit" id="submitButton"> Adicionar aos Favoritos </button>
                         </form>
                     </div>
                     <div class="site-section">
