@@ -31,7 +31,7 @@ public class ProjectSecurityConfig {
         http
                 .csrf().ignoringAntMatchers("/home").and()
                 .authorizeRequests()
-                // .mvcMatchers("/dashboard").authenticated()
+                .mvcMatchers("/favorites").authenticated()
                 .mvcMatchers("/login").permitAll()
                 .mvcMatchers("/register").permitAll()
                 .and().formLogin().loginPage("/login")

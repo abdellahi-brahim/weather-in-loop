@@ -19,7 +19,6 @@ import lombok.Data;
 @Entity
 @Table(name = "Favorites")
 public class Favorites {
-
     @Id
     @Column(name = "favID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

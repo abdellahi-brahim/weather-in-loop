@@ -21,8 +21,6 @@ public class UserAuthentication implements AuthenticationProvider {
         String name = authentication.getName();
         String pwd = authentication.getCredentials().toString();
         User user = userRepository.findByName(name);
-        System.out.println(user);
-        System.out.println("hello '" + name + "' <- heres the name");
         if (null != user && user.getUserID() > 0 && pwd.equals(user.getPassword())) {
             return new UsernamePasswordAuthenticationToken(user.getName(), pwd);
         } else {
