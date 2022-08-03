@@ -33,7 +33,7 @@ public class UserService {
     public boolean addFavorite(String cityName){
         Favorites favorite = new Favorites();
         favorite.setCity(cityName);
-        favorite.setUsers(userRepository.findByName());
+        //favorite.setUsers(userRepository.findByName());
         favorite = favoritesRepository.save(favorite);
         return favorite != null && favorite.getFavID() > 0;
     }
