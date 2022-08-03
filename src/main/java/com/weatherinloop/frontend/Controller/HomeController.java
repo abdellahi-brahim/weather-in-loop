@@ -52,6 +52,7 @@ public class HomeController {
 
     @GetMapping(value = { "/favorites" })
     public String displayFavorites(Model model){
+        System.out.println("Displaying favorites...");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         List<Weather> favorites = requestWeatherList(userService.getFavorites(username));
@@ -65,8 +66,13 @@ public class HomeController {
 
     @PostMapping(value = { "/addFavorite"})
     public String addFavorite(@PathVariable(value = "cityName") String cityName, Model model){
-        userService.addFavorite(cityName);
-        return displayFavorites(model);
+        boolean isSaved = false;
+        isSaved = userService.addFavorite(cityName);
+
+        if(isSaved)
+            return "redirect:/favorites/";
+
+        return "redirect:/forecast/" + cityName;
     }
 
     public List<Weather> requestWeatherList(List<String> cityList){

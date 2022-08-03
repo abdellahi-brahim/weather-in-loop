@@ -3,7 +3,7 @@ Author: W3layouts
 Author URL: http://w3layouts.com
 -->
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <!-- Required meta tags -->
@@ -38,7 +38,7 @@ Author URL: http://w3layouts.com
                         <h3 th:text="'Forecast for ' + ${city.name} + ', ' + ${city.country}" class="mb-lg-4 mb-3">
                             Forecast</h3>
 
-                        <form method="post" th:action="@{/favorite}">
+                        <form sec:authorize="isAuthenticated()" method="post" th:action="@{/favorite}">
                             <button type="button">Add to Favorites</button>
                         </form>
                     </div>

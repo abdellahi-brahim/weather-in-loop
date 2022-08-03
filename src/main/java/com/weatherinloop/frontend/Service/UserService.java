@@ -5,11 +5,13 @@ import com.weatherinloop.frontend.Model.User;
 import com.weatherinloop.frontend.Repository.FavoritesRepository;
 import com.weatherinloop.frontend.Repository.UserRepository;
 
+import com.weatherinloop.frontend.Utils.AuthenticationSystem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,7 +35,7 @@ public class UserService {
     public boolean addFavorite(String cityName){
         Favorites favorite = new Favorites();
         favorite.setCity(cityName);
-        //favorite.setUsers(userRepository.findByName());
+        favorite.getUsers().add(userRepository.findByName(AuthenticationSystem.getUsername()));
         favorite = favoritesRepository.save(favorite);
         return favorite != null && favorite.getFavID() > 0;
     }
